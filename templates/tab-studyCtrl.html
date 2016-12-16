@@ -1,0 +1,74 @@
+<ion-view hide-nav-bar="true" view-title="details" hide-tabs="true">
+
+    <div style="width: 100%;height: 30%;position: relative">
+            <div  class="videoBox" style="color: #fff; text-align: center;line-height: 160px;font-size: 20px;width: 100%;height:100%;z-index: 100;position: absolute;background: rgba(0,0,0,.5)" >
+                <span ng-click="loGin()">请 <a href="" ng-show="goBug" >购买</a><a href="" ng-show="!goBug">登陆</a></span>
+
+            </div>
+            <video id="infomedia"  width='100%' height="auto" controls>
+                <source ng-src="{{Vurl}}">
+            </video>
+        </div>
+    <div class="list">
+        <ul>
+            <li class="item row stable-bg" style="text-align: center">
+                <i class="col col-50" style="border-right: solid #fff 2px" ng-click="mymulu()">目录 <i class="ion-chevron-down"></i></i>
+                <i class="col col-50" ng-click="myxiangqing()">详情<i class="ion-chevron-down"></i></i>
+            </li>
+            </ul>
+        </div>
+         <ion-content style="bottom:39px;top:35%; "overflow-scroll="true" >
+                    <ion-list ng-show="cDLsis">
+                    <ion-item ng-repeat="item in CDlists">
+                        <div class="title-left" >{{item.CDname}}</div>
+                        <a class="item"  style="padding:0 16px!important;height:60px;width: 100%;position: relative;line-height: 60px;border:0;text-align: center" ng-repeat="hh in item.Vlist">
+                            <div style="left:40px; position:absolute;border:1px #ccc dashed;height:100%">
+                                <img src="img/study_circle.png"style="position: absolute;left: -7px;top: 50%;margin-top: -7px" alt=""/>
+                            </div>
+                            <div style="float:left;width: 50%;">{{hh.Vname}}</div>
+                            <div style="float:left;width: 50%;">{{hh.Vtime}}分钟</div>
+                        </a>
+                    </ion-item>
+                    </ion-list>
+             <ion-list ng-show="Evalu">
+             <div class="title-left">ios评价</div>
+             <ion-item class="item-avatar-left" ng-repeat="eve in Evaluate.list">
+             <img src="img/adam.jpg" alt=""/>
+             <p>{{eve.UserId}}<a style="float: right">{{eve.createAt}}</a></p>
+             <span>{{eve.evaluate}}</span>
+             </ion-item>
+
+             </ion-list>
+         </ion-content>
+    <ion-tabs class="tabs-icon-bottom tabs-color-active-positive">
+
+        <!-- Dashboard Tab -->
+        <!--icon-off 失去焦点  icon-on 获取焦点-->
+        <ion-tab title="评价" icon-off="ion-edit" icon-on="ion-ios-home" href="#/tab/" ng-click="modal.show()">
+            <!--<ion-nav-view name="tab-"></ion-nav-view>-->
+        </ion-tab>
+        <!-- Chats Tab -->
+        <ion-tab title="{{shoucang}}"  icon-off="ion-ios-star" icon-on="ion-ios-star" ng-click="collection()" href="#/tab/">
+            <!--<ion-nav-view name="tab-"></ion-nav-view>-->
+        </ion-tab>
+        <!-- Account Tab -->
+        <ion-tab title="购买" icon-off="ion-ios-download-outline" icon-on="ion-ios-download" href="#/tab/">
+            <!--<ion-nav-view name="tab-"></ion-nav-view>-->
+        </ion-tab>
+    </ion-tabs>
+    <script id="templates/modal.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+            <h1 class="title">写评论</h1>
+            <button class="button button-clear button-primary" ng-click="modal.hide()">关闭</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+            <textarea rows="20" ng-model="lista.mentValue" cols="100%" style="border:1px solid #000;">
+
+            </textarea>
+            <button class="button button-full button-positive" ng-click="addMent()">提交</button>
+        </ion-content>
+
+    </ion-modal-view>
+</script>
+</ion-view>

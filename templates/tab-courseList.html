@@ -1,0 +1,49 @@
+<ion-view view-title="课程列表" hide-nav-bar="true" >
+  <style>
+    .seleBtn{
+      margin-bottom:10px;
+      background: #fff;
+      height: 30px;
+      width: 60px;
+      margin-right: 10px;
+      float: left;
+    }
+  </style>
+  <ion-header-bar class="item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="请输入关键字"/>
+    </label>
+  </ion-header-bar>
+  <ion-content >
+    <div class="row" style="text-align: center;color:#444">
+      <div class="col col-50 " id="kl" style="border-right: 2px solid #ccc;"ng-click="toggle()" ng-style="colorBtn">课程列表 <i class="ion-chevron-down"></i></div>
+      <div class="col col-50 " id="xq" ng-click="tog()" ng-style="xqBtn">详情 <i class="ion-chevron-down"></i></div>
+    </div>
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="item  stable-bg" ng-show="show" >
+      <ul ng-repeat="btn in majorList">
+        <i class="button seleBtn" ng-click="searchCourse('','{{btn.sysId}}','')">{{btn.title}}</i>
+      </ul>
+    </div>
+    <div class="" ng-show="hide" ng-blur="hide=false" ng-repeat="bbtt in priceBtn">
+      <div class="item stable-bg" ng-click="searchCourse('','{{btn.sysId}}','')">
+        {{bbtt.title}}
+      </div>
+    </div>
+    <div class="list" ng-repeat="item in lists">
+      <div class="item item-thumbnail-left" ng-click="stateLess(item.ID)">
+        <img src="{{item.Cpic}}" alt=""/>
+        <h4>{{item.Cname}}</h4>
+        <p>{{item.Cdescribe}}</p>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="moredata"  on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+
+</ion-view>
+
+
+
+
+

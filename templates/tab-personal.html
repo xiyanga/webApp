@@ -1,0 +1,61 @@
+<ion-view  view-title="personal" hide-nav-bar="true" >
+  <style>
+      ion-view{
+          background-image:url("image/landbg.jpg")
+      }
+    .land{
+      background-color: #0a9dc7;
+
+      background-size: cover;
+    }
+    .landInp{
+      /*margin-top: 200px;*/
+      margin: 100px auto 0;
+    }
+    .touxiang>img{
+      left: 50% !important;
+      margin-left:-40px ;
+    }
+    .con{
+      width:90%;
+      margin: 0 auto;
+      position: relative;
+    }
+    .button-positive{
+      width: 100%;
+      top: 20px;
+    }
+    .wangji{
+      display:block;height: 40px;box-sizing: content-box;position: relative;width: 90%;
+      margin: 0 auto;margin-top: 30px;!important;;
+    }
+    a{
+      color: #fff
+    }
+
+
+
+
+
+
+  </style>
+  <ion-content>
+      <div class="list landInp touxiang item-thumbnail-left">
+      <img src="image/tx.jpg" alt=""/>
+      </div>
+      <div class="con">
+      <div class="item item-input">
+      <input type="text" ng-model="userInfo.userName" placeholder="用户名"/>
+      </div>
+      <div class="item item-input" >
+      <input type="text" ng-model="userInfo.userPwd"  placeholder="密码"/>
+      </div>
+      <button class="button button-positive" ng-click="load()">登陆</button>
+      </div>
+      <i class="wangji">
+      <a style="float:left;" href="#/tab/res">注册</a>
+      <a style="float: right;">忘记密码</a>
+      </i>
+      </ion-content>
+</ion-view>
+

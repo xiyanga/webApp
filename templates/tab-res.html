@@ -1,0 +1,52 @@
+<ion-view  style=" background: url('image/sjbg.jpg');
+background-size: cover;">
+    <style>
+
+        h1{
+            color: #fff;
+            margin-top: 80px !important;
+            text-align: center;
+        }
+        .zcContent{
+            width: 90%;
+            /*height: 100px;*/
+            margin: 0 auto;
+            background-color: rgba(255,255,255,.5);
+        }
+        .item-input{
+        background-color: rgba(3,3,3,0);
+        border-top: none;
+        height: 20px;
+        color: #fff !important;
+        box-sizing: content-box;
+        }
+        .btnaa{
+            width: 90%;
+            left: 50%;
+            margin-left: -45%;
+            top: 20px;
+            color: #fff;
+        }
+    </style>
+    <ion-content class="register">
+    <h1>注册</h1>
+    <div class="list zcContent ">
+    <div class="item item-input ">
+    <input type="text" class="inputOp" ng-model="userIn.userName" placeholder="用户名"/>
+    </div>
+    <div class="item item-input">
+    <input type="text" class="inputOp"  ng-model="userIn.email"  placeholder="邮箱"/>
+    </div>
+    <div class="item item-input">
+    <input type="text" class="inputOp" ng-model="userIn.phone" placeholder="手机号"/>
+    </div>
+    <div class="item item-input">
+    <input type="text" class="inputOp" ng-model="userIn.userPwd" placeholder="密码"/>
+    </div>
+    <div class="item item-input">
+    <input type="text" class="inputOp" ng-model="userIn.nickname" placeholder="再次输入密码"/>
+    </div>
+    </div>
+    <button class="button btnaa positive-bg" ng-click="zhuce()">完成</button>
+    </ion-content>
+</ion-view>

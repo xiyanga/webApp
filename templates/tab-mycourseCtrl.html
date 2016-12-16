@@ -1,0 +1,51 @@
+?<ion-view view-title="我的课程" hide-nav-bar="true" >
+    <style>
+        .seleBtn{
+            margin-bottom:10px;
+            background: #fff;
+            height: 30px;
+            width: 60px;
+            margin-right: 10px;
+            float: left;
+        }
+    </style>
+    <ion-header-bar class="item-input-inset stable-bg"  >
+        <h1 class="title">我的课程</h1>
+        <button class="button" ng-click="data.showDelete=!data.showDelete">删除</button>
+    </ion-header-bar>
+    <ion-content >
+        <div class="row" style="text-align: center;color:#444">
+            <div class="col col-50 " id="kl" style="border-right: 2px solid #ccc;"ng-click="mylesson()" ng-style="colorBtn">我的课程 <i class="ion-chevron-down"></i></div>
+            <div class="col col-50 " id="xq" ng-click="outlesson()" ng-style="xqBtn">全部课程<i class="ion-chevron-down"></i></div>
+        </div>
+        <!--<ion-refresher pulling-text="����ˢ��" on-refresh="doRefresh()"></ion-refresher>-->
+        <ion-list  ng-show="myCou" ng-repeat="item in myLesson"  show-delete="data.showDelete">
+            <ion-item class="item item-thumbnail-left " >
+                <img src="{{item.Cpic}}" alt=""/>
+                <h4>{{item.Cname}}</h4>
+                <p>{{item.Cdescribe}}</p>
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="itemDelete(item.ID)">
+                </ion-delete-button>
+
+            </ion-item>
+        </ion-list>
+        <ion-list ng-show="outCou" ng-repeat="it in myLesson" show-delete="data.showDelete">
+            <ion-item class="item item-thumbnail-left">
+                <img src="{{it.Cpic}}" alt=""/>
+                <h4>{{it.Cname}}</h4>
+                <p>{{it.Cdescribe}}</p>
+                <ion-delete-button class="ion-minus-circled" ng-click="itemDelete(it.ID)">
+                </ion-delete-button>
+            </ion-item>
+
+        </ion-list>
+        <ion-infinite-scroll ng-if="moredata"  on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+        <div style="font-size: 30px;text-align: center;margin-top: 100px" ng-click="placeLogin()"  ng-show="dl_tf">请登录</div>
+    </ion-content>
+</ion-view>
+
+
+
+
+
